@@ -4,3 +4,13 @@
 
 GET {{Todo_HostAddress}}/api/tasks/
 Accept: application/json
+
+### Skapa uppgift
+
+POST {{Todo_HostAddress}}/api/tasks/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Vattna blommorna"
+}

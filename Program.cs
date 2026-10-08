@@ -26,6 +26,21 @@ app.MapGet("/api/tasks", () =>
     return Results.Ok(taskListDtos);
 });
 
+app.MapPost("/api/tasks", (CreateTaskDto createTaskDto) =>
+{
+    var task = new Task(createTaskDto.Name);
+
+    task.Id = taskList.Max(x => x.Id) + 1;
+
+    taskList.Add(task);
+
+    var taskDto = new TaskDto(task.Id, task.Name, task.Completed);
+
+    return Results.Created("", taskDto);
+});
+
 app.Run();
 
 record TaskDto(int? Id, string Name, bool Completed);
+
+record CreateTaskDto(string Name);
