@@ -1,6 +1,6 @@
-@Todo_HostAddress = http://localhost:5222
+@Todo_HostAddress = https://localhost:8000
 
-GET {{Todo_HostAddress}}/weatherforecast/
+### Hämta alla uppgifter
+
+GET {{Todo_HostAddress}}/api/tasks/
 Accept: application/json
-
-###
